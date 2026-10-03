@@ -1,0 +1,34 @@
+[project]
+name = "anki-mcp"
+version = "0.1.0"
+description = "MCP server that edits an Anki collection and syncs it with AnkiWeb"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Simon Gloel", email = "simongloel@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anki==26.9.3",
+    "mcp>=2.2,<3",
+]
+
+[project.urls]
+Repository = "https://github.com/simongloel/anki-mcp"
+Changelog = "https://github.com/simongloel/anki-mcp/blob/main/CHANGELOG.md"
+
+[project.scripts]
+anki-mcp = "anki_mcp:main"
+
+[build-system]
+requires = ["uv_build>=0.9.27,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
