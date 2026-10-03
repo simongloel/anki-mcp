@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from collections.abc import Callable
 from pathlib import Path
 
@@ -94,7 +95,8 @@ def test_only_the_host_key_is_stored(device: Device) -> None:
     raw = laptop.cfg.state_path.read_text()
     assert PASSWORD not in raw
     assert json.loads(raw)["hkey"]
-    assert oct(laptop.cfg.state_path.stat().st_mode & 0o777) == "0o600"
+    if sys.platform != "win32":
+        assert oct(laptop.cfg.state_path.stat().st_mode & 0o777) == "0o600"
 
     # a later run needs no password
     relaunched = device("laptop", password=None)

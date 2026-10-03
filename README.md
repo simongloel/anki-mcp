@@ -51,7 +51,7 @@ You need [uv](https://docs.astral.sh/uv/); it fetches Python 3.12 if you don't h
 uv tool install git+https://github.com/simongloel/anki-mcp
 ```
 
-That puts `anki-mcp` on your PATH. The Anki library comes as a prebuilt wheel for Windows, macOS and Linux. For development, clone the repository and run `uv sync` instead; the server is then at `.venv/bin/anki-mcp`.
+That puts `anki-mcp` on your PATH. The Anki library comes as a prebuilt wheel for Windows, macOS and Linux, and the test suite runs on all three. For development, clone the repository and run `uv sync` instead; the server is then at `.venv/bin/anki-mcp`.
 
 ### Sign in
 
